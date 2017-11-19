@@ -26,6 +26,9 @@ const App = () => {
   );
 }; */
 
+// import data from '../testData'; // this is data directly from memory
+import axios from 'axios';
+
 class App extends React.Component {
   // Instead of creating state inside constructor, create state as 
   // class property
@@ -36,10 +39,35 @@ class App extends React.Component {
   } */
   state = {
     test: 98,
-    pageHeader: 'Naming Contests'
+    pageHeader: 'Naming Contests',
+    // Remember only state is one that can be updated dynamically!
+    // It also allows to control the list. For example in console:
+    // $r.setState({contests: $r.state.contests.slice(1)}) will remove 
+    // the first component
+    contests: []
   }
+  /**
+   * This allows as to render data in any delay since it's after component
+   * is mounted. For example, feting API data might take some time.    */
   componentDidMount() {
     // console.log('Component did mount!');
+    // Use ajax request and fetch data from the remote API. Once we have
+    // data we can make it available through the React state. For library:
+    // use axios
+    axios.get('/api/contests')
+      .then(
+      // handling the promised data. axios will give response object that
+      // will have the data
+        resp => {
+          this.setState({
+            contests: resp.data.contests
+          });
+        }
+      )
+      .catch(
+      // cathing the error
+        console.error
+      );
   }
   
   componentWillUnmount() {
@@ -52,8 +80,8 @@ class App extends React.Component {
         <Header message={'message from App'} />
         <h4>State test value: {this.state.pageHeader}</h4>
         <div>
-          {this.props.contests.map(contest=>
-            <ContestPreview {...contest} />
+          {this.state.contests.map(contest=>
+            <ContestPreview {...contest} key={contest.id}/>
           )}
         </div>
       </div>
@@ -83,3 +111,7 @@ App.defaultProps = {
 }; */
 
 export default App;
+
+/**
+ * API endpoint
+ */

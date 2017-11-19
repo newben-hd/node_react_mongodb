@@ -79,6 +79,7 @@ server.use(express.static('public'));
 @arg second: api router
 */
 server.use('/api',apiRouter);
+// preparing api endpoint
 
 import apiRouter from './api';
 

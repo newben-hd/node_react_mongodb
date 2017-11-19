@@ -77,4 +77,7 @@ PACKAGES
   ```sh
   npm i -S prop-types
   ```
-* 
+* axios: promised based HTTP client for the browser and node.js through AJAX requests; for remote API data fetching
+  ```sh
+  npm i -S axios
+  ```

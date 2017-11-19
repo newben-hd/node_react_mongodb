@@ -37,10 +37,10 @@ JSX is similar to HTML with some exceptions:
 // console.log(color);
 
 import App from './components/App';
-import data from './testData';
+// import data from './testData';
 
 ReactDOM.render(
-  <App contests={data.contests}/>,
+  <App />,
   document.getElementById('root')
 );
 

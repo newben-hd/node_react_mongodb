@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/newben-hd/node_react_mongodb#readme",
   "dependencies": {
+    "axios": "^0.17.1",
     "express": "^4.16.2",
     "json-loader": "^0.5.7",
     "mongodb": "^2.2.33",
