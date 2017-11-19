@@ -1,4 +1,5 @@
 import React from 'react';
+import ContestPreview from './ContestPreview';
 /*
 React Component
 Is a function with return HTML
@@ -25,8 +26,6 @@ const App = () => {
   );
 }; */
 
-
-
 class App extends React.Component {
   // Instead of creating state inside constructor, create state as 
   // class property
@@ -40,11 +39,11 @@ class App extends React.Component {
     pageHeader: 'Naming Contests'
   }
   componentDidMount() {
-    console.log('Component did mount!');
+    // console.log('Component did mount!');
   }
   
   componentWillUnmount() {
-    console.log('Component removed!');
+    // console.log('Component removed!');
   }
 
   render() {
@@ -52,10 +51,20 @@ class App extends React.Component {
       <div className='App'>
         <Header message={'message from App'} />
         <h4>State test value: {this.state.pageHeader}</h4>
+        <div>
+          {this.props.contests.map(contest=>
+            <ContestPreview {...contest} />
+          )}
+        </div>
       </div>
     );
   }
 }
+
+import PropTypes from 'prop-types';
+ContestPreview.propTypes = {
+  contests: PropTypes.array
+};
 
 // Every React component has a lifecycle
 // It gets mounted in the DOM

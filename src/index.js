@@ -37,19 +37,22 @@ JSX is similar to HTML with some exceptions:
 // console.log(color);
 
 import App from './components/App';
+import data from './testData';
 
 ReactDOM.render(
-  <App />,
+  <App contests={data.contests}/>,
   document.getElementById('root')
 );
 
 /**
  * Component composability
  */
-
+/* 
 setTimeout(()=>{
   ReactDOM.render(
     <div>Removed component for testing componentWillUnmount</div>,
     document.getElementById('root')
   );
-},3000);
+},3000); */
+
+// console.log(data);

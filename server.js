@@ -81,3 +81,21 @@ server.use(express.static('public'));
 server.use('/api',apiRouter);
 
 import apiRouter from './api';
+
+/**
+ * SASS
+ */
+
+import sassMiddleware from 'node-sass-middleware';
+// built-in node module: path
+import path from 'path';
+
+// to use sass middleware with express,
+server.use(sassMiddleware({
+  /**
+   * @argument 1st: src directory
+   * @argument 2nd: destination directory
+   */
+  src:path.join(__dirname,'sass'),
+  dest:path.join(__dirname,'public')
+}));

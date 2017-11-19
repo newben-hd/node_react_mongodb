@@ -43,3 +43,38 @@ NOTES
 	```sh
 	npm run dev
 	```
+* SASS:
+  * Extension for CSS as more powerful
+  * save it as {file}.scss
+  * Make sure to translate it to css:
+  ```sh
+  node i -S node-sass-middleware
+  ```
+
+PACKAGES
+---
+
+* json-loader: loader for webpack to understand JSON file:
+  ```sh
+  npm i -S json-loader
+  ```
+  * Configure webpack {webpack.config.js} with the json loader:
+  ```js
+  module:{
+    loaders:[
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader'
+      }
+    ]
+  }
+  ```
+* prop-types: props validation since built-in React PropTypes is deprecated
+  ```sh
+  npm i -S prop-types
+  ```
+* 
