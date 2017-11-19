@@ -33,16 +33,16 @@ server.on("request",(req,res)=>{
 }); */
 
 /* EXPRESS */
-import express from "express";
-import config from "./config";
+import express from 'express';
+import config from './config';
 // import fs from 'fs';
 
 // create server
 const server = express();
 
 server.listen(config.port, ()=>{
-    // success handler
-    console.info("Express successfully listening to port ",config.port);
+  // success handler
+  console.info('Express successfully listening to port ',config.port);
 });
 
 // Instead of listening to a single request event, an Express server also handles
@@ -53,8 +53,8 @@ server.listen(config.port, ()=>{
     @arg second: event handler call similar to HTTP module receives both a request
                 and a response object.
 */
-server.get("/",(req,res)=>{
-    res.send("Hello Express!");
+server.get('/',(req,res)=>{
+  res.send('Hello Express!');
 });
 
 /* server.get("/about.html",(req,res)=>{
@@ -80,4 +80,4 @@ server.use(express.static('public'));
 */
 server.use('/api',apiRouter);
 
-import apiRouter from "./api";
+import apiRouter from './api';

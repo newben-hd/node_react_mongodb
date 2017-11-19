@@ -38,3 +38,8 @@ NOTES
 	* Import non-default exported object with destructure syntax: import config, { nodeEnv } from './config'
 * HTTP:
 	* Express is a wrapper around core http module
+* React:
+	* Run webpack and generate the bundle.js file from React source code into public:
+	```sh
+	npm run dev
+	```
